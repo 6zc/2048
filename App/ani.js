@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { GestureDetector, Gesture } from 'react-native-gesture-handler';
+import {StyleSheet, View} from 'react-native';
+import {GestureDetector, Gesture} from 'react-native-gesture-handler';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -9,14 +9,14 @@ import Animated, {
 
 function Ball() {
   const isPressed = useSharedValue(false);
-  const offset = useSharedValue({ x: 0, y: 0 });
+  const offset = useSharedValue({x: 0, y: 0});
 
   const animatedStyles = useAnimatedStyle(() => {
     return {
       transform: [
-        { translateX: offset.value.x },
-        { translateY: offset.value.y },
-        { scale: withSpring(isPressed.value ? 1.2 : 1) },
+        {translateX: offset.value.x},
+        {translateY: offset.value.y},
+        {scale: withSpring(isPressed.value ? 1.2 : 1)},
       ],
       backgroundColor: isPressed.value ? 'yellow' : 'blue',
     };
@@ -27,7 +27,7 @@ function Ball() {
       'worklet';
       isPressed.value = true;
     })
-    .onChange((e) => {
+    .onChange(e => {
       'worklet';
       offset.value = {
         x: e.changeX + offset.value.x,
